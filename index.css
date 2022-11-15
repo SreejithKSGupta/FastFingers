@@ -1,0 +1,233 @@
+:root{
+    --info:'Type the letters on the screen as fast as possibe. If you make a mistake, 1 point will be removed from your score.Also if you don\' type fast enough, you loose.';
+}
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    animation-duration: 1000ms;
+}
+body{
+    background-color: #1d1d1d;
+    overscroll-behavior: none  ;
+    color: aliceblue;
+    font-family: 'Poppins';
+}
+#header{
+    height: 10vh;
+    width: 100vw;
+    background-color: #141414;
+    text-align: center;
+    line-height: 10vh;
+    font-size: 200%;
+    font-weight: 600;
+}
+#toppart{
+    height: 20vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    padding:2vw;
+    align-items: center;
+    text-align: center;
+    line-height: 5vw;
+    font-size: 300%;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+}
+#content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+#infobox{
+    width: 20vw;
+}
+#timerbox{
+    display: none;
+    width: 0px;
+    height: 0px;
+}
+#scoreboard{
+    color: rgb(0, 255, 64);
+    width: 20vw;
+}
+#info{
+    text-align: center;
+    width:5vw;
+    background-color: #0d97e7;
+    border-radius:50%;
+    box-shadow:  0 0 0 0.5vw #0f4869;
+}
+#info:hover{
+    background-color: #0f4869;
+    box-shadow:  0 0 0 0.8vw #0d97e7;
+}
+#info:hover::after {
+    line-height: 2vw;
+    font-size: 40%;
+    font-weight: 100;
+    width: 30vw;
+    position: absolute;
+    left: 7vw;
+    border-radius: 20px;
+    padding: 10px;
+    content:var(--info);
+    background-color: #0d35e7;
+}
+.scoreitem{
+    width: 20vw;
+    display: flex;
+    justify-content: space-between;
+    margin: 1vh 0;
+    flex-direction: row;
+}
+.scoreitem :nth-child(1){
+    color: #17b18f;
+    text-align: right;
+    width: 80%;
+    font-size: 60%;
+}
+
+
+
+#parapart{
+    display: none;
+    width:30vh;
+    height:30vh;
+    font-size:25vh;
+    background-color: #161616;
+    border-radius: 20px;
+    text-align: center ;
+    font-style: oblique;
+    font-weight: 600;
+    margin-top: 10vh;
+}
+#gamestate{
+    padding:30px;
+    font-size:150%;
+    display: block;
+    background-color: #141414;
+    border-radius: 20px;
+    text-align: center;
+    width: 80%;
+}
+#gamestartintro{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 150%;
+    color: rgb(31, 192, 52);
+    font-weight: 500;
+    font-style: oblique;
+    animation: blinker 1s linear infinite;
+}
+#gamerestartintro{
+    display: none;
+    width: 100%;
+    text-align: center;
+    font-size: 150%;
+}
+
+#Gameovertxt{
+    font-size: 180%;
+    color: red;
+    text-decoration: dotted;
+    text-decoration-color: red;
+    font-weight: 500;
+    font-style: oblique;
+}
+
+#pscore{
+    font-size: 550%;
+    color: rgb(0, 255, 64);
+    font-weight: 500;
+    font-style: oblique;
+}
+
+#restarttxt{
+    font-size: 150%;
+    color: rgb(149, 192, 31);
+    font-weight: 500;
+    font-style: oblique;
+    animation: blinker 1s linear infinite;
+}
+
+
+
+#footer{
+    position: absolute;
+    bottom: 5vh;
+    width: 80vw;
+    margin-left: 10vw;
+}
+#timebar{
+    width:60vw;
+    height:4vw;
+    background-color: rebeccapurple;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+}
+#timeline{
+    font-size: 0px;
+    width: 100%;
+    height: 100%;
+    background: green;
+    border-radius: 20px;
+}
+
+
+@media screen and (max-width: 600px) {
+    #header{
+        font-size: 100%;
+    }
+    #toppart{
+        font-size: 100%;
+    }
+    #parapart{
+        font-size: 10vh;
+    }
+    #gamestate{
+        font-size: 100%;
+    }
+    #gamestartintro{
+        font-size: 100%;
+    }
+    #gamerestartintro{
+        font-size: 100%;
+    }
+    #Gameovertxt{
+        font-size: 100%;
+    }
+    #pscore{
+        font-size: 250%;
+    }
+    #restarttxt{
+        font-size: 100%;
+    }
+    #footer{
+        font-size: 100%;
+    }
+    #timebar{
+        width: 80vw;
+        border-radius: 20px;
+    }
+    #timeline{
+        width: 100%;
+        height: 100%;
+        background-color:rgb(255,255,0);
+        border-radius: 20px;
+    }
+    
+}
+
+
+@keyframes blinker {
+    30% {
+        opacity: 0;
+    }
+}
