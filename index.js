@@ -32,12 +32,15 @@ function keypress(event) {
     }
     else if (alphabets.indexOf(event.key) > -1 && gamestate == 'play') {
         if(event.key==letter) {
+              //set a random color as parapart background
+              getid('parapart').style.backgroundColor = 'rgb(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ')';
               getid('timerbox').innerHTML=100;
               letter = String.fromCharCode(97 + Math.floor(Math.random() * 26));
               getid("parapart").innerHTML = letter;
               point = point + 1;
             }
         else {
+            getid('parapart').style.border='10px,red'
                 point = point - 1;
                 if (point == -1) { endgame(); }
             }
