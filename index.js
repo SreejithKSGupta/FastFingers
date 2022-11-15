@@ -40,7 +40,7 @@ function keypress(event) {
               point = point + 1;
             }
         else {
-            getid('parapart').style.border='10px,red'
+            getid('parapart').style.backgroundColor='rgb(255,0,0)';
                 point = point - 1;
                 if (point == -1) { endgame(); }
             }
