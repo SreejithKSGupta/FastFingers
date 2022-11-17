@@ -5,10 +5,17 @@ var box = document;
 var total=0;
 var ttime=getid('timerbox').innerHTML;
 var gamestate='stop'
+var level=3;
 var alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 initgame();
 function initgame() {
        highscore = localStorage.getItem('keygame/highscore');
+       level=localStorage.getItem('keygame/level');
+         if(level==null){
+              level=3;
+         }
+         getid('levelindicatior').innerHTML="Difficulty :"+level;
+            getid('levelslider').value=level;
     if (highscore == null) {
         highscore = 0;
     }
@@ -16,6 +23,7 @@ function initgame() {
     letter = String.fromCharCode(97 + Math.floor(Math.random() * 26));
     getid("parapart").innerHTML = letter;
     addlistner();
+    showlevel();
 }
 function  addlistner(){
     box.addEventListener('keydown', function (event) {
@@ -66,7 +74,7 @@ function getid(id) {
     return document.getElementById(id);
 }
 function setendinfo() {
-    getid('pscore').innerHTML =point;
+    getid('pscore').innerHTML =point*level;
     getid('paccuracy').innerHTML ='Accuracy :'+ Math.round((point/ total)*100);+'%';
     getid('ptotal').innerHTML ='Total :'+ total;
     getid('pwrong').innerHTML ='wrong :'+ ((total-point)/2);
@@ -83,7 +91,8 @@ function showendscreen(){
     getid('gamerestartintro').style.display = "block";
 }
 function runtimer(){
-    const timetimer=setInterval(gametimer,20);
+    var speedlev=40/level;
+    const timetimer=setInterval(gametimer,speedlev);
     function gametimer(){
         ttime=getid('timerbox').innerHTML;
         if(ttime<=0){
@@ -99,3 +108,11 @@ function runtimer(){
         getid('timerbox').innerHTML=ttime;
     }
 }
+function showlevel(){
+   getid('levelslider').addEventListener('change',function(){
+   getid('levelindicatior').innerHTML="Difficulty :"+this.value;
+   level=this.value;
+   localStorage.setItem('keygame/level',this.value);
+});
+}
+

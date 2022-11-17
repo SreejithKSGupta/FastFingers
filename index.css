@@ -1,5 +1,6 @@
 :root{
     --info:'Type the letters on the screen as fast as possibe. If you make a mistake, 1 point will be removed from your score.Also if you don\' type fast enough, you loose.';
+    --level:'5';
 }
 *{
     margin: 0px;
@@ -51,6 +52,16 @@ body{
     width: 0px;
     height: 0px;
 }
+#levelslider{
+    width: 20vw;
+    height: 5vh;
+    background-color: #141414;
+    border: 1px solid white;
+    border-radius: 5px;
+    outline: none;
+    padding: 0px;
+}
+
 #scoreboard{
     color: rgb(0, 255, 64);
     width: 20vw;
@@ -231,3 +242,47 @@ body{
         opacity: 0;
     }
 }
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width:10vw;
+    height:5vh;
+    background: rgba(0, 255, 34, 0.884);
+    border-radius: 20px;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 2vw;
+    height:5vh;
+    border-radius: 5px;
+    background: #0004ff;
+    cursor: ew-resize;
+    box-shadow: 0 0 2px 0 #555;
+    transition: .3s ease-in-out;
+  }
+  
+  input[type=range]::-webkit-slider-runnable-track  {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border:20px;
+    background: #00ff0d48;
+  }
+
+  input[type=range]::-webkit-slider-runnable-track:hover {
+    background: #00ff88b4;
+  }
+
+  input[type="range"]:hover::after{
+    position:absolute;
+    top:11vh;
+    left:48vw;
+    border-radius: 5px;
+    padding: 10px;
+    width: 3vh;
+    height: 3vh;
+    content:var(--level);
+    background-color: #0de74e;
+    font-size: 3vh;
+    color: aliceblue;
+  }
