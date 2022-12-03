@@ -16,7 +16,7 @@ laptop/desktop keyboard, and you whack them when you press they keys.
 * HTML
 
 ## Website Link
-https://sreejithksgupta.github.io/mykeyboard/
+https://sreejithksgupta.github.io/FastFingers/
 
 ## Sample Images
 
